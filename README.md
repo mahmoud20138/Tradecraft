@@ -1,8 +1,8 @@
-<h1 align="center">Claude Skills Collection</h1>
+<h1 align="center">Trading Skills Collection</h1>
 
 <p align="center">
-  <strong>102+ Professional Claude Code Skills Across 7 Categories</strong><br>
-  Trading Strategies &bull; Azure Cloud &bull; VSCode Extensions &bull; AI Prompts &bull; Custom Automation
+  <strong>55+ Professional Trading Skills for Claude Code & MetaTrader 5</strong><br>
+  ICT Smart Money &bull; MQL5 Expert Advisors &bull; AI Vision &bull; Backtesting &bull; Risk Management &bull; Multi-Timeframe Analysis
 </p>
 
 <p align="center">
@@ -15,9 +15,10 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Claude-Code-FF6B35?style=flat-square&logo=anthropic&logoColor=white" alt="Claude Code">
-  <img src="https://img.shields.io/badge/Azure-24_Skills-0078D4?style=flat-square&logo=microsoft-azure&logoColor=white" alt="Azure">
-  <img src="https://img.shields.io/badge/Trading-41_Skills-00C853?style=flat-square&logo=chart-line&logoColor=white" alt="Trading">
-  <img src="https://img.shields.io/badge/MQL5-Expert_Advisors-E44332?style=flat-square" alt="MQL5">
+  <img src="https://img.shields.io/badge/MetaTrader5-MQL5-E44332?style=flat-square" alt="MT5">
+  <img src="https://img.shields.io/badge/ICT-Smart_Money-00C853?style=flat-square" alt="ICT">
+  <img src="https://img.shields.io/badge/AI-Vision-7C3AED?style=flat-square" alt="AI Vision">
+  <img src="https://img.shields.io/badge/Trading-Skills-41-009688?style=flat-square" alt="41 Skills">
   <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License">
   <img src="https://img.shields.io/badge/PRs-Welcome-blueviolet?style=flat-square" alt="PRs Welcome">
 </p>
@@ -26,111 +27,220 @@
 
 ## About
 
-> **102 Claude Code skills across 7 categories** -- trading strategies, Azure, VSCode extensions, AI prompts, and custom automation skills
+> **55+ trading skills** -- ICT Smart Money Concepts, MQL5 Expert Advisors, AI-powered chart vision, backtesting engines, risk management systems, and multi-timeframe analysis tools for Claude Code and MetaTrader 5.
 
-A comprehensive, production-ready collection of Claude Code skills, prompts, and automation tools organized across 7 specialized categories. From AI agent building and Azure cloud deployments to ICT trading strategies and MQL5 Expert Advisors -- everything you need to supercharge your Claude Code workflow.
+A comprehensive collection of professional trading automation skills covering every aspect of algorithmic trading: from ICT market structure and order block detection to Wyckoff analysis, Elliott Wave theory, harmonic patterns, and AI-powered signal aggregation. Includes 33 standalone `.skill` files plus 8 core trading skill directories.
 
 ---
 
 ## Table of Contents
 
 - [Skills Overview](#skills-overview)
-- [Category Breakdown](#category-breakdown)
-- [Trading Skills (.skill files)](#trading-skills-skill-files)
+- [Core Trading Skills (8 Directories)](#core-trading-skills-8-directories)
+- [Standalone Trading Skills (33 .skill files)](#standalone-trading-skills-33-skill-files)
+- [Custom Skills (6)](#custom-skills-6)
+- [AITK Prompts (7)](#aitk-prompts-7)
+- [VSCode Extension Skills (9)](#vscode-extension-skills-9)
 - [How to Use](#how-to-use)
 - [Directory Structure](#directory-structure)
 - [Quick Reference](#quick-reference)
 - [Contributing](#contributing)
 - [License](#license)
-- [Connect](#connect)
 
 ---
 
 ## Skills Overview
 
-| # | Category | Skills | Key Topics |
-|---|----------|--------|------------|
-| 1 | **Custom Claude Skills** | 6 | AI Agent Builder, UI Design, Prompt Engineering, Trading, Architecture, Drawing |
-| 2 | **Azure Skills** | 24 | AI Search, Deploy, Cost Optimization, RBAC, Storage, Compute, Compliance |
-| 3 | **Claude Plugin Skills** | 10 | Automation, Frontend Design, Agent/Command/Hook/MCP Development |
-| 4 | **AITK Prompts** | 7 | Browser Automation, PR Creation, Bug Fixing, Documentation Lookup |
-| 5 | **VSCode Extension Skills** | 9 | Testing, Debugging, Python Environments, Cross-Platform Paths |
-| 6 | **OpenCode Skills** | 5 | AI SDK, Plugin Framework, Claude Code Extension |
-| 7 | **Trading Skills** | 8 + 33 .skill files | MQL5, ICT, Smart Money, Backtesting, Risk Management |
-| | **TOTAL** | **102+** | |
+| Category | Count | Key Topics |
+|----------|-------|------------|
+| **Core Trading Skills** | 8 directories | MQL5, ICT, Smart Money, Risk Management, Backtesting |
+| **Standalone Trading Skills** | 33 .skill files | All trading strategies, AI, vision, scanners |
+| **Custom Skills** | 6 | ICT Trading, AI Agent Builder, UI Design, Architecture |
+| **AITK Prompts** | 7 | Browser automation, bug fixing, PR creation |
+| **VSCode Extension Skills** | 9 | Testing, debugging, Python environments |
+| **TOTAL** | **63+** | |
 
 ---
 
-## Category Breakdown
+## Core Trading Skills (8 Directories)
 
-### 1. Custom Claude Skills (6)
+Located in `07-Trading-Skills/`
+
+| # | Skill | Description |
+|---|-------|-------------|
+| 1 | **mql5-indicator-development** | Build custom MT5 indicators with proper buffer management, plotting, and alert integration |
+| 2 | **mql5-ea-development** | Create Expert Advisors with entry/exit logic, risk management, trailing stops, and position sizing |
+| 3 | **ict-market-structure** | Identify market structure shifts (BOS, CHoCH) using ICT Smart Money Concepts |
+| 4 | **ict-order-blocks** | Detect and trade order blocks, breaker blocks, mitigation blocks, and rejection blocks |
+| 5 | **ict-liquidity-concepts** | Map liquidity pools, sweeps, fair value gaps, and premium/discount zones for entries |
+| 6 | **multi-timeframe-analysis** | Implement top-down multi-timeframe analysis in MQL5 (MN1 → W1 → D1 → H4 → H1 → M15) |
+| 7 | **risk-management-engine** | Position sizing, risk-per-trade, drawdown control, equity protection, and compounding |
+| 8 | **backtesting-optimization** | Strategy tester optimization, walk-forward analysis, Monte Carlo validation |
+
+---
+
+## Standalone Trading Skills (33 .skill files)
+
+### Price Action & Structure
+
+| Skill File | Description |
+|-----------|-------------|
+| `market-structure-bos-choch.skill` | Break of Structure (BOS) and Change of Character (CHoCH) detection engine |
+| `price-action-pure-engine.skill` | Pure price action analysis with candlestick patterns and SR levels |
+| `supply-demand-zone-strategy.skill` | Supply and demand zone identification and trading strategy |
+| `trendline-sr-vision.skill` | AI-powered trendline and support/resistance detection |
+| `pivot-point-strategies.skill` | Pivot point calculation and trading strategies (classic, Fibonacci, Camarilla) |
+| `multi-tf-order-block-mapper.skill` | Multi-timeframe order block mapping and confluence detection |
+
+### ICT & Smart Money
+
+| Skill File | Description |
+|-----------|-------------|
+| `smart-money-trap-detector.skill` | Smart money trap detection (liquidity grabs, stop hunts, fakeouts) |
+| `institutional-behavior-monitor.skill` | Institutional behavior tracking and accumulation/distribution detection |
+| `cot-positioning-strategy.skill` | COT (Commitment of Traders) positioning-based strategy with contrarian signals |
+
+### AI & Vision
+
+| Skill File | Description |
+|-----------|-------------|
+| `ai-signal-aggregator.skill` | Multi-model AI signal aggregation and consensus scoring |
+| `candlestick-pattern-vision.skill` | AI-powered candlestick pattern recognition via chart images |
+| `chart-pattern-recognition-vision.skill` | AI chart pattern recognition (head & shoulders, triangles, wedges) |
+| `chart-image-preprocessor.skill` | Chart image preprocessing and normalization for AI analysis |
+| `chart-vision-renderer.skill` | Chart rendering engine for visual analysis |
+| `chart-annotation-overlay.skill` | Chart annotation overlay system for marking levels |
+| `trendline-sr-vision.skill` | AI-powered trendline and support/resistance detection |
+
+### Pattern Recognition
+
+| Skill File | Description |
+|-----------|-------------|
+| `elliott-wave-engine.skill` | Elliott Wave analysis engine with wave counting and invalidation levels |
+| `harmonic-pattern-engine.skill` | Harmonic pattern detection (Gartley, Bat, Butterfly, Crab, Shark) |
+| `wyckoff-method-engine.skill` | Wyckoff method analysis (accumulation, markup, distribution, markdown) |
+| `candlestick-statistics-engine.skill` | Statistical candlestick analysis with win rate calculations |
+| `heikin-ashi-renko-strategies.skill` | Heikin Ashi and Renko chart strategies |
+
+### Strategy Engines
+
+| Skill File | Description |
+|-----------|-------------|
+| `breakout-strategy-engine.skill` | Breakout detection with volume confirmation and false breakout filtering |
+| `divergence-strategy-engine.skill` | RSI/MACD/Stochastic divergence detection and trading |
+| `fibonacci-strategy-engine.skill` | Fibonacci retracement and extension based strategy engine |
+| `ichimoku-complete-strategy.skill` | Complete Ichimoku Cloud strategy with all 5 components |
+| `mean-reversion-engine.skill` | Mean reversion trading with Bollinger Bands and Z-score |
+| `trend-following-systems.skill` | Multi-MA and ADX-based trend following systems |
+| `ma-ribbon-strategy.skill` | Moving average ribbon crossover strategy |
+| `momentum-roc-strategy.skill` | Momentum and Rate of Change strategy |
+| `scalping-framework.skill` | Complete scalping framework with spread management |
+| `swing-trading-framework.skill` | Swing trading with multi-day hold and trailing stops |
+| `end-of-day-strategy.skill` | End-of-day trading strategy for daily timeframes |
+| `gap-trading-strategy.skill` | Gap trading strategy with fill probability |
+| `session-breakout-strategies.skill` | London/NY session breakout strategies |
+| `asian-session-scalper.skill` | Asian session range scalping strategy |
+| `grid-trading-engine.skill` | Grid trading system with dynamic spacing |
+| `carry-trade-calculator.skill` | Carry trade calculator with swap rate optimization |
+| `automated-strategy-builder.skill` | Natural language to automated strategy builder |
+| `natural-language-to-strategy.skill` | Convert trading descriptions to MQL5 code |
+
+### Scanning & Screening
+
+| Skill File | Description |
+|-----------|-------------|
+| `pair-scanner-screener.skill` | Multi-pair scanner and screener with customizable filters |
+| `cross-timeframe-divergence-scanner.skill` | Cross-timeframe divergence detection scanner |
+| `currency-strength-meter.skill` | Multi-currency strength index and ranking |
+| `correlation-heatmap-visualizer.skill` | Correlation heatmap generator for pair analysis |
+| `pair-correlation-engine.skill` | Pair correlation analysis with hedging suggestions |
+| `intermarket-divergence-trader.skill` | Intermarket divergence (bonds, commodities, FX) trading |
+
+### Risk & Performance
+
+| Skill File | Description |
+|-----------|-------------|
+| `risk-adjusted-compounding.skill` | Risk-adjusted position compounding system |
+| `risk-premia-harvester.skill` | Risk premia harvesting via options and carry strategies |
+| `tail-risk-hedging.skill` | Tail risk hedging strategies for portfolio protection |
+| `monte-carlo-stress-tester.skill` | Monte Carlo simulation for strategy stress testing |
+| `parameter-sensitivity-analyzer.skill` | Parameter sensitivity analysis for optimization |
+| `performance-attribution-engine.skill` | Performance attribution and factor analysis |
+| `strategy-ab-tester.skill` | Strategy A/B testing framework with statistical significance |
+| `spread-slippage-cost-analyzer.skill` | Spread and slippage cost analysis and optimization |
+| `swap-rate-optimizer.skill` | Swap rate optimization for holding positions |
+| `vectorized-backtester.skill` | High-performance vectorized backtesting engine |
+
+### Sentiment & News
+
+| Skill File | Description |
+|-----------|-------------|
+| `news-sentiment-nlp-engine.skill` | News sentiment NLP analysis engine |
+| `market-news-impact.skill` | Market news impact analysis and event trading |
+| `sentiment-extreme-contrarian.skill` | Sentiment extreme contrarian strategy |
+| `economic-indicator-tracker.skill` | Economic indicator tracking and impact scoring |
+| `news-straddle-strategy.skill` | News straddle trading strategy |
+| `event-timeline-linker.skill` | Event timeline correlation with price action |
+| `seasonality-analyzer.skill` | Historical seasonal pattern analysis |
+| `market-breadth-analyzer.skill` | Market breadth analysis (advance/decline, new highs/lows) |
+
+### Volume & Order Flow
+
+| Skill File | Description |
+|-----------|-------------|
+| `volume-profile-strategy.skill` | Volume profile analysis with POC and value area trading |
+| `order-flow-delta-strategy.skill` | Order flow delta analysis for institutional activity |
+| `multi-pair-basket-trader.skill` | Multi-pair basket trading with correlation weighting |
+| `multi-account-manager.skill` | Multi-account management with allocation strategies |
+
+### MT5 Integration
+
+| Skill File | Description |
+|-----------|-------------|
+| `mt5-chart-browser.skill` | MT5 chart browsing and multi-symbol analysis |
+| `mt5-ea-code-generator.skill` | Expert Advisor code generation from strategy descriptions |
+| `trading-brain-orchestrator.skill` | AI trading brain orchestrator combining all skills |
+| `trading-data-science.skill` | Trading data science toolkit (pandas, numpy analysis) |
+| `trading-plan-builder.skill` | Trading plan builder with risk/reward calculation |
+| `trade-simulator-paper.skill` | Paper trading simulator with performance tracking |
+| `trade-psychology-coach.skill` | Trading psychology coaching and journaling |
+
+---
+
+## Custom Skills (6)
+
+Located in `01-Custom-Claude-Skills/skills/`
 
 | Skill | Trigger Keywords | Description |
 |-------|-----------------|-------------|
-| **ai-agent-builder** | agent, agentic, tool use | Build AI-powered coding agents with multi-step orchestration |
-| **elite-ui-design** | beautiful UI, polished, dashboard | Generate production-grade, visually stunning UI code |
-| **few-shot-quality-prompting** | prompt engineering, improve output | Master prompt engineering with 7-layer prompts and few-shot patterns |
-| **ict-trading-strategy** | ICT, Smart Money, order blocks | ICT Smart Money Concepts and MQL5 trading strategies |
-| **pro-code-architecture** | clean code, refactor, best practices | Senior-engineer-level code architecture with SOLID principles |
-| **programmatic-drawing** | draw, illustrate, visualize, diagram | Generate visual art and diagrams (SVG, Canvas, p5.js, D3.js) |
+| **ict-trading-strategy** | ICT, Smart Money, order blocks | ICT Smart Money Concepts and MQL5 trading |
+| **ai-agent-builder** | agent, agentic, tool use | Build AI-powered agents with multi-step orchestration |
+| **elite-ui-design** | beautiful UI, dashboard | Production-grade UI code generation |
+| **few-shot-quality-prompting** | prompt engineering | Master prompt engineering with few-shot patterns |
+| **pro-code-architecture** | clean code, refactor | Senior-engineer-level code architecture |
+| **programmatic-drawing** | draw, visualize | Generate visual art and diagrams (SVG, D3.js) |
 
-### 2. Azure Skills (24)
+---
 
-| Skill | Description |
-|-------|-------------|
-| **azure-ai** | Azure AI Search, Speech, OpenAI, Document Intelligence |
-| **azure-aigateway** | API Management as AI Gateway with policies |
-| **azure-cloud-migrate** | Migrate AWS Lambda/GCP to Azure Functions |
-| **azure-compliance** | Security audits, compliance, Key Vault monitoring |
-| **azure-compute** | VM recommendations, VMSS, pricing |
-| **azure-cost-optimization** | Cost analysis, Redis optimization, resource graph |
-| **azure-deploy** | Deploy to Azure (azd up, Bicep, Terraform) |
-| **azure-diagnostics** | Debug production Container/Function Apps |
-| **azure-hosted-copilot-sdk** | GitHub Copilot SDK applications |
-| **azure-kusto** | Azure Data Explorer, KQL queries |
-| **azure-messaging** | Event Hubs, Service Bus troubleshooting |
-| **azure-observability** | Monitor, App Insights, Log Analytics |
-| **azure-postgres** | PostgreSQL with Entra ID passwordless auth |
-| **azure-prepare** | Prepare apps for Azure deployment |
-| **azure-rbac** | Role assignments, least-privilege access |
-| **azure-resource-lookup** | List and find Azure resources |
-| **azure-resource-visualizer** | Architecture diagrams (Mermaid) |
-| **azure-storage** | Blob, File, Queue, Table storage |
-| **azure-validate** | Pre-deployment validation |
-| **entra-app-registration** | Azure AD app registration, OAuth 2.0, MSAL |
-| **microsoft-foundry** | AI Foundry, models, agents, RBAC |
-| **appinsights-instrumentation** | App Insights SDK instrumentation |
-| **git-phase-restore** | Restore to previous project phases via Git |
-| **skill-creator** | Create new skills |
+## AITK Prompts (7)
 
-### 3. Claude Plugin Skills (10)
-
-| Skill | Description |
-|-------|-------------|
-| **claude-automation-recommender** | Codebase automation analysis |
-| **claude-md-improver** | CLAUDE.md file auditing |
-| **frontend-design** | Distinct frontend design |
-| **example-skill** | Skill template example |
-| **writing-rules** | Automation writing rules |
-| **agent-development** | Agent creation patterns |
-| **command-development** | Command creation |
-| **hook-development** | Hook creation patterns |
-| **mcp-integration** | MCP server setup |
-| **skill-development** | Skill development workflow |
-
-### 4. AITK Prompts (7)
+Located in `04-AITK-Prompts/`
 
 | Prompt | Description |
 |--------|-------------|
-| **browser-use** | Browser automation |
-| **claude-opus-4-5-migration** | Claude migration guide |
-| **context7-docs-lookup** | Documentation lookup |
+| **browser-use** | Browser automation for web-based chart analysis |
+| **fix** | Intelligent bug fixing for MQL5 and Python code |
 | **create-pr** | Pull request creation |
+| **context7-docs-lookup** | MQL5 and trading documentation lookup |
+| **claude-opus-4-5-migration** | Claude migration guide |
 | **electron-chromium-upgrade** | Electron upgrades |
-| **fix** | Intelligent bug fixing |
 | **tools** | General-purpose tooling |
 
-### 5. VSCode Extension Skills (9)
+---
+
+## VSCode Extension Skills (9)
+
+Located in `05-VSCode-Extension-Skills/`
 
 | Skill | Description |
 |-------|-------------|
@@ -144,139 +254,35 @@ A comprehensive, production-ready collection of Claude Code skills, prompts, and
 | **run-smoke-tests** | Smoke testing |
 | **settings-precedence** | Settings management |
 
-### 6. OpenCode Skills (5)
-
-| Package | Version | Description |
-|---------|---------|-------------|
-| **@opencode-ai/sdk** | v1.2.15, v1.2.16 | AI SDK client/server library with V2 API |
-| **@opencode-ai/plugin** | v1.2.15, v1.2.16 | Plugin development with Zod validation |
-| **Claude Code Extension** | v2.1.63 | VSCode integration walkthrough |
-
-### 7. Trading Skills (8 Core + 33 .skill files)
-
-| Skill | Description |
-|-------|-------------|
-| **mql5-indicator-development** | Build custom MT5 indicators with proper buffer management |
-| **mql5-ea-development** | Create Expert Advisors with entry/exit logic and risk management |
-| **ict-market-structure** | Identify market structure shifts (BOS, CHoCH) using ICT concepts |
-| **ict-order-blocks** | Detect and trade order blocks, breaker blocks, mitigation blocks |
-| **ict-liquidity-concepts** | Map liquidity pools, sweeps, and fair value gaps |
-| **multi-timeframe-analysis** | Top-down multi-timeframe analysis in MQL5 |
-| **risk-management-engine** | Position sizing, risk-per-trade, drawdown control |
-| **backtesting-optimization** | Strategy tester, walk-forward analysis, validation |
-
----
-
-## Trading Skills (.skill files)
-
-The repo includes **33 standalone .skill files** at the root level for advanced trading automation:
-
-| Skill File | Category | Description |
-|-----------|----------|-------------|
-| `ai-signal-aggregator.skill` | AI/ML | Multi-model AI signal aggregation |
-| `asian-session-scalper.skill` | Scalping | Asian session scalping strategy |
-| `automated-strategy-builder.skill` | Builder | Automated strategy construction |
-| `breakout-strategy-engine.skill` | Breakout | Breakout detection and trading |
-| `candlestick-pattern-vision.skill` | Vision | AI-powered candlestick pattern recognition |
-| `candlestick-statistics-engine.skill` | Statistics | Candlestick statistical analysis |
-| `carry-trade-calculator.skill` | Carry Trade | Carry trade calculator and optimizer |
-| `chart-annotation-overlay.skill` | Visualization | Chart annotation overlay system |
-| `chart-image-preprocessor.skill` | Vision | Chart image preprocessing for AI |
-| `chart-pattern-recognition-vision.skill` | Vision | AI chart pattern recognition |
-| `chart-vision-renderer.skill` | Visualization | Chart rendering engine |
-| `correlation-heatmap-visualizer.skill` | Visualization | Correlation heatmap generator |
-| `cot-positioning-strategy.skill` | Sentiment | COT positioning-based strategy |
-| `cross-timeframe-divergence-scanner.skill` | Scanner | Cross-timeframe divergence detection |
-| `currency-strength-meter.skill` | Analysis | Multi-currency strength meter |
-| `divergence-strategy-engine.skill` | Divergence | Divergence detection and trading |
-| `economic-indicator-tracker.skill` | Macro | Economic indicator tracking |
-| `elliott-wave-engine.skill` | Elliott Wave | Elliott Wave analysis engine |
-| `end-of-day-strategy.skill` | Swing | End-of-day trading strategy |
-| `event-timeline-linker.skill` | Macro | Event timeline correlation |
-| `fibonacci-strategy-engine.skill` | Fibonacci | Fibonacci-based strategy engine |
-| `gap-trading-strategy.skill` | Gap | Gap trading strategy |
-| `grid-trading-engine.skill` | Grid | Grid trading system |
-| `harmonic-pattern-engine.skill` | Harmonic | Harmonic pattern detection (Gartley, Bat, Butterfly) |
-| `heikin-ashi-renko-strategies.skill` | Chart Types | Heikin Ashi and Renko strategies |
-| `ichimoku-complete-strategy.skill` | Ichimoku | Complete Ichimoku Cloud strategy |
-| `institutional-behavior-monitor.skill` | Smart Money | Institutional behavior tracking |
-| `intermarket-divergence-trader.skill` | Intermarket | Intermarket divergence trading |
-| `ma-ribbon-strategy.skill` | Moving Average | MA ribbon strategy |
-| `market-breadth-analyzer.skill` | Breadth | Market breadth analysis |
-| `market-news-impact.skill` | News | Market news impact analysis |
-| `market-structure-bos-choch.skill` | Structure | BOS/CHoCH detection engine |
-| `mean-reversion-engine.skill` | Mean Reversion | Mean reversion trading engine |
-| `momentum-roc-strategy.skill` | Momentum | Momentum ROC strategy |
-| `monte-carlo-stress-tester.skill` | Risk | Monte Carlo stress testing |
-| `mt5-chart-browser.skill` | MT5 | MT5 chart browsing system |
-| `mt5-ea-code-generator.skill` | MT5 | EA code generation |
-| `multi-account-manager.skill` | Management | Multi-account management system |
-| `multi-pair-basket-trader.skill` | Basket | Multi-pair basket trading |
-| `multi-tf-order-block-mapper.skill` | Smart Money | Multi-timeframe order block mapping |
-| `natural-language-to-strategy.skill` | AI | Natural language strategy builder |
-| `news-sentiment-nlp-engine.skill` | NLP | News sentiment NLP engine |
-| `news-straddle-strategy.skill` | News | News straddle trading strategy |
-| `order-flow-delta-strategy.skill` | Order Flow | Order flow delta strategy |
-| `pair-correlation-engine.skill` | Correlation | Pair correlation analysis |
-| `pair-scanner-screener.skill` | Scanner | Multi-pair scanner/screener |
-| `parameter-sensitivity-analyzer.skill` | Optimization | Parameter sensitivity analysis |
-| `performance-attribution-engine.skill` | Performance | Performance attribution analysis |
-| `pivot-point-strategies.skill` | Pivot | Pivot point strategies |
-| `price-action-pure-engine.skill` | Price Action | Pure price action engine |
-| `risk-adjusted-compounding.skill` | Risk | Risk-adjusted position compounding |
-| `risk-premia-harvester.skill` | Risk | Risk premia harvesting strategy |
-| `scalping-framework.skill` | Scalping | Complete scalping framework |
-| `seasonality-analyzer.skill` | Seasonality | Seasonal pattern analysis |
-| `sentiment-extreme-contrarian.skill` | Sentiment | Sentiment extreme contrarian strategy |
-| `session-breakout-strategies.skill` | Session | Session breakout strategies |
-| `smart-money-trap-detector.skill` | Smart Money | Smart money trap detection |
-| `spread-slippage-cost-analyzer.skill` | Cost | Spread and slippage cost analysis |
-| `strategy-ab-tester.skill` | Testing | Strategy A/B testing framework |
-| `supply-demand-zone-strategy.skill` | S/D Zones | Supply and demand zone strategy |
-| `swap-rate-optimizer.skill` | Swap | Swap rate optimization |
-| `swing-trading-framework.skill` | Swing | Complete swing trading framework |
-| `tail-risk-hedging.skill` | Risk | Tail risk hedging strategies |
-| `trade-psychology-coach.skill` | Psychology | Trading psychology coaching |
-| `trade-simulator-paper.skill` | Simulation | Paper trading simulator |
-| `trading-brain-orchestrator.skill` | AI | AI trading brain orchestrator |
-| `trading-data-science.skill` | Data Science | Trading data science toolkit |
-| `trading-plan-builder.skill` | Planning | Trading plan builder |
-| `trend-following-systems.skill` | Trend | Trend following systems |
-| `trendline-sr-vision.skill` | Vision | AI trendline and S/R detection |
-| `vectorized-backtester.skill` | Backtesting | High-performance vectorized backtester |
-| `volume-profile-strategy.skill` | Volume | Volume profile strategy |
-| `wyckoff-method-engine.skill` | Wyckoff | Wyckoff method analysis engine |
-
 ---
 
 ## How to Use
 
 ### Method 1: Claude Code Auto-Load
 
-Skills are automatically loaded by Claude Code based on trigger keywords in your prompts:
+Skills load automatically based on trigger keywords:
 
 ```
-"Help me build an AI agent with tool use"     → loads ai-agent-builder
-"Deploy my app to Azure"                      → loads azure-deploy
-"Create a beautiful dashboard UI"              → loads elite-ui-design
 "Identify order blocks on EURUSD H1"           → loads ict-order-blocks
+"Build an EA with trailing stop and risk 1%"   → loads mql5-ea-development
+"Run Wyckoff analysis on XAUUSD"               → loads wyckoff-method-engine
+"Backtest my strategy with Monte Carlo"        → loads monte-carlo-stress-tester
+"Scan all pairs for divergence"                 → loads cross-timeframe-divergence-scanner
 ```
 
-### Method 2: Direct File Access
-
-Navigate to any skill folder and read the `SKILL.md` file for complete documentation.
-
-### Method 3: Manual Loading
-
-Reference the skill directly in your Claude Code prompts or commands.
-
-### Method 4: Copy to Your Skills Directory
+### Method 2: Copy to Your Skills Directory
 
 ```bash
-# Copy specific skills to your Claude Code skills directory
-cp -r 01-Custom-Claude-Skills/skills/ai-agent-builder.md ~/.claude/skills/
-cp -r 07-Trading-Skills/skills/ict-market-structure/ ~/.claude/skills/
+# Copy trading skills to your Claude Code skills directory
+cp -r 07-Trading-Skills/skills/ ~/.claude/skills/
+
+# Copy individual .skill files
+cp *.skill ~/.claude/skills/
 ```
+
+### Method 3: Direct File Access
+
+Navigate to any skill and read the `SKILL.md` file for complete documentation.
 
 ---
 
@@ -286,54 +292,29 @@ cp -r 07-Trading-Skills/skills/ict-market-structure/ ~/.claude/skills/
 Claude-Skills-Collection/
 ├── README.md
 ├── SKILL-INDEX.md                    # Master index with trigger keywords
-├── EXPORT-SUMMARY.md                 # Export/backup log
-├── merge_skills.py                   # Skill merging utility
+├── EXPORT-SUMMARY.md
+├── merge_skills.py
 │
-├── 01-Custom-Claude-Skills/          # 6 skills
+├── 01-Custom-Claude-Skills/          # 6 skills (ICT + dev tools)
 │   └── skills/
+│       ├── ict-trading-strategy.md
 │       ├── ai-agent-builder.md
 │       ├── elite-ui-design.md
 │       ├── few-shot-quality-prompting.md
-│       ├── ict-trading-strategy.md
 │       ├── pro-code-architecture.md
 │       └── programmatic-drawing.md
-│
-├── 02-Azure-Skills/                  # 24 skills
-│   └── skills/
-│       ├── azure-ai/
-│       ├── azure-deploy/
-│       ├── azure-cost-optimization/
-│       ├── azure-compute/
-│       ├── azure-storage/
-│       ├── azure-compliance/
-│       ├── ... (18 more)
-│       └── skill-creator/
-│
-├── 03-Claude-Plugin-Skills/          # 10 skills
-│   └── skills/claude-automation-recommender/
-│       ├── agent-development/
-│       ├── command-development/
-│       ├── hook-development/
-│       ├── mcp-integration/
-│       └── skill-development/
 │
 ├── 04-AITK-Prompts/                  # 7 prompts
 │   ├── browser-use/
 │   ├── fix/
-│   ├── create-pr/
-│   └── ... (4 more)
+│   └── ... (5 more)
 │
 ├── 05-VSCode-Extension-Skills/       # 9 skills
 │   ├── debug-failing-test/
 │   ├── run-e2e-tests/
 │   └── ... (7 more)
 │
-├── 06-OpenCode-Skills/               # 5 packages
-│   ├── @opencode-ai/sdk/
-│   ├── @opencode-ai/plugin/
-│   └── anthropic.claude-code-2.1.63/
-│
-├── 07-Trading-Skills/                # 8 core skills
+├── 07-Trading-Skills/                # 8 core trading skills
 │   ├── mql5-indicator-development/
 │   ├── mql5-ea-development/
 │   ├── ict-market-structure/
@@ -346,9 +327,11 @@ Claude-Skills-Collection/
 └── *.skill                           # 33 standalone trading skills
     ├── ai-signal-aggregator.skill
     ├── wyckoff-method-engine.skill
-    ├── vectorized-backtester.skill
     ├── elliott-wave-engine.skill
-    └── ... (29 more)
+    ├── vectorized-backtester.skill
+    ├── harmonic-pattern-engine.skill
+    ├── trading-brain-orchestrator.skill
+    └── ... (27 more)
 ```
 
 ---
@@ -359,43 +342,45 @@ Claude-Skills-Collection/
 
 | Use Case | Skill | Location |
 |----------|-------|----------|
-| Build AI agents | `ai-agent-builder` | 01-Custom |
-| Beautiful UI | `elite-ui-design` | 01-Custom |
-| Production code | `pro-code-architecture` | 01-Custom |
-| Azure deploy | `azure-deploy` | 02-Azure |
-| Create new skills | `skill-creator` | 02-Azure |
-| ICT trading | `ict-trading-strategy` | 01-Custom |
-| MT5 indicators | `mql5-indicator-development` | 07-Trading |
-| Expert Advisors | `mql5-ea-development` | 07-Trading |
-| Backtesting | `vectorized-backtester.skill` | Root |
+| Build Expert Advisors | `mql5-ea-development` | 07-Trading |
+| Custom indicators | `mql5-indicator-development` | 07-Trading |
+| ICT market structure | `ict-market-structure` | 07-Trading |
+| Order block detection | `ict-order-blocks` | 07-Trading |
 | Risk management | `risk-management-engine` | 07-Trading |
+| Backtesting | `vectorized-backtester.skill` | Root |
+| Wyckoff analysis | `wyckoff-method-engine.skill` | Root |
+| Elliott Wave | `elliott-wave-engine.skill` | Root |
+| AI signal aggregation | `ai-signal-aggregator.skill` | Root |
+| Multi-pair scanning | `pair-scanner-screener.skill` | Root |
 
-### Languages Used
+### Trading Strategy Coverage
 
-| Language | Percentage | Use Case |
-|----------|-----------|----------|
-| HTML | 26.8% | Azure reference docs |
-| Python | 22.3% | Scripts, tools, utilities |
-| Shell | 19.8% | Deployment scripts |
-| Bicep | 14.1% | Azure infrastructure |
-| HCL | 12.3% | Terraform configurations |
-| PowerShell | 4.5% | Windows automation |
-| Batchfile | 0.2% | Windows scripts |
+| Category | Skills |
+|----------|--------|
+| **Smart Money / ICT** | Order blocks, liquidity, BOS/CHoCH, killzones, PD arrays |
+| **Price Action** | Candlestick patterns, SR levels, supply/demand zones |
+| **Technical Analysis** | Fibonacci, Ichimoku, MA ribbon, pivot points, divergence |
+| **Pattern Recognition** | Elliott Wave, Harmonics, Wyckoff, chart patterns |
+| **AI / ML** | Signal aggregation, vision, NLP, AI orchestrator |
+| **Risk Management** | Position sizing, drawdown control, hedging, compounding |
+| **Backtesting** | Vectorized engine, Monte Carlo, walk-forward, A/B testing |
+| **Sentiment** | News NLP, COT, contrarian extremes, economic indicators |
+| **Order Flow** | Volume profile, delta analysis, institutional tracking |
+| **Session Trading** | Asian scalper, London/NY breakout, gap trading |
+| **MT5 Integration** | EA generator, chart browser, multi-account manager |
 
 ---
 
 ## Contributing
 
-Contributions are welcome! Please follow these steps:
+Contributions are welcome!
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/new-skill`)
+2. Create a feature branch (`git checkout -b feature/new-trading-skill`)
 3. Add your skill following the existing structure
-4. Commit your changes (`git commit -m 'Add new skill'`)
-5. Push to the branch (`git push origin feature/new-skill`)
-6. Open a Pull Request
+4. Commit and open a Pull Request
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
@@ -405,15 +390,14 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-## Connect
-
 <p align="center">
   <a href="https://github.com/mahmoud20138"><img src="https://img.shields.io/badge/GitHub-mahmoud20138-181717?style=for-the-badge&logo=github" alt="GitHub"></a>
 </p>
 
 <p align="center">
   <strong>Built by <a href="https://github.com/mahmoud20138">Mahmoud</a></strong><br>
-  <sub>If you find this collection useful, please consider giving it a star!</sub>
+  <sub>If you find this useful, please consider giving it a star!</sub><br><br>
+  <sub>Disclaimer: These skills are for educational purposes only. Not financial advice. Always do your own research.</sub>
 </p>
 
 <p align="center">
