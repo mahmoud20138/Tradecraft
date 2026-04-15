@@ -1,0 +1,1119 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Auto-Trading AI Agent System API",
+    "version": "1.0.0",
+    "description": "REST API for controlling and monitoring the automated trading system"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8000",
+      "description": "Local development"
+    },
+    {
+      "url": "https://trading-system.example.com",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/api/v1/status": {
+      "get": {
+        "summary": "Get system status",
+        "description": "Returns current system health, trading mode, and basic metrics",
+        "tags": ["Status"],
+        "responses": {
+          "200": {
+            "description": "System status retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/status/health": {
+      "get": {
+        "summary": "Health check endpoint",
+        "description": "Lightweight health check for load balancers",
+        "tags": ["Status"],
+        "responses": {
+          "200": {
+            "description": "System is healthy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": ["healthy", "degraded", "unhealthy"]
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "System is unhealthy"
+          }
+        }
+      }
+    },
+    "/api/v1/portfolio": {
+      "get": {
+        "summary": "Get portfolio state",
+        "description": "Returns current portfolio including balances, positions, and risk metrics",
+        "tags": ["Portfolio"],
+        "responses": {
+          "200": {
+            "description": "Portfolio state retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Portfolio"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/positions": {
+      "get": {
+        "summary": "List open positions",
+        "description": "Returns all currently open trading positions",
+        "tags": ["Portfolio"],
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "query",
+            "description": "Filter by symbol",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Positions retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Position"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/trades": {
+      "get": {
+        "summary": "List trade history",
+        "description": "Returns historical trades with pagination",
+        "tags": ["Trading"],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of trades to return",
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "maximum": 500
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Pagination offset",
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
+          },
+          {
+            "name": "symbol",
+            "in": "query",
+            "description": "Filter by symbol",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Filter by status",
+            "schema": {
+              "type": "string",
+              "enum": ["OPEN", "CLOSED", "CANCELLED"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Trades retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "trades": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Trade"
+                      }
+                    },
+                    "total": {
+                      "type": "integer"
+                    },
+                    "offset": {
+                      "type": "integer"
+                    },
+                    "limit": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/trades/{trade_id}": {
+      "get": {
+        "summary": "Get trade details",
+        "description": "Returns detailed information about a specific trade",
+        "tags": ["Trading"],
+        "parameters": [
+          {
+            "name": "trade_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Trade retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Trade"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Trade not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Close trade manually",
+        "description": "Manually close an open trade at current market price",
+        "tags": ["Trading"],
+        "parameters": [
+          {
+            "name": "trade_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Trade closed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Trade"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Cannot close trade (already closed, invalid state)"
+          },
+          "404": {
+            "description": "Trade not found"
+          }
+        }
+      }
+    },
+    "/api/v1/signals": {
+      "get": {
+        "summary": "List recent signals",
+        "description": "Returns recent trading signals with optional filtering",
+        "tags": ["Signals"],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 50
+            }
+          },
+          {
+            "name": "strategy",
+            "in": "query",
+            "description": "Filter by strategy name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Filter by status",
+            "schema": {
+              "type": "string",
+              "enum": ["PENDING", "VALIDATED", "REJECTED", "EXPIRED", "FILLED"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Signals retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Signal"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/intensity-modes": {
+      "get": {
+        "summary": "List trading intensity modes",
+        "description": "Returns all 3 trading intensity modes (Bullet/Blitz/Rapid) with configuration and status",
+        "tags": ["IntensityModes"],
+        "responses": {
+          "200": {
+            "description": "Scalping modes retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ScalpingMode"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/intensity-modes/{mode}/enable": {
+      "post": {
+        "summary": "Enable trading intensity mode",
+        "tags": ["IntensityModes"],
+        "parameters": [
+          {
+            "name": "mode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["bullet", "blitz", "rapid"]
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Mode enabled" },
+          "404": { "description": "Mode not found" }
+        }
+      }
+    },
+    "/api/v1/intensity-modes/{mode}/disable": {
+      "post": {
+        "summary": "Disable trading intensity mode",
+        "tags": ["IntensityModes"],
+        "parameters": [
+          {
+            "name": "mode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["bullet", "blitz", "rapid"]
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Mode disabled" },
+          "404": { "description": "Mode not found" }
+        }
+      }
+    },
+    "/api/v1/strategies": {
+      "get": {
+        "summary": "List strategies",
+        "description": "Returns all configured strategies and their status",
+        "tags": ["Strategies"],
+        "responses": {
+          "200": {
+            "description": "Strategies retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StrategyInfo"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/strategies/{strategy_name}/enable": {
+      "post": {
+        "summary": "Enable strategy",
+        "description": "Enable a specific trading strategy",
+        "tags": ["Strategies"],
+        "parameters": [
+          {
+            "name": "strategy_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Strategy enabled"
+          },
+          "404": {
+            "description": "Strategy not found"
+          }
+        }
+      }
+    },
+    "/api/v1/strategies/{strategy_name}/disable": {
+      "post": {
+        "summary": "Disable strategy",
+        "description": "Disable a specific trading strategy",
+        "tags": ["Strategies"],
+        "parameters": [
+          {
+            "name": "strategy_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Strategy disabled"
+          },
+          "404": {
+            "description": "Strategy not found"
+          }
+        }
+      }
+    },
+    "/api/v1/control/start": {
+      "post": {
+        "summary": "Start trading",
+        "description": "Enable automated trading (must be in paper or live mode)",
+        "tags": ["Control"],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "mode": {
+                    "type": "string",
+                    "enum": ["paper", "demo", "live"],
+                    "description": "Trading mode to start"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Trading started",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": ["STARTING", "RUNNING"]
+                    },
+                    "mode": {
+                      "type": "string"
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Cannot start (already running, configuration error)"
+          }
+        }
+      }
+    },
+    "/api/v1/control/stop": {
+      "post": {
+        "summary": "Stop trading",
+        "description": "Disable automated trading (does NOT close open positions)",
+        "tags": ["Control"],
+        "responses": {
+          "200": {
+            "description": "Trading stopped",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/control/emergency-stop": {
+      "post": {
+        "summary": "EMERGENCY STOP (Kill Switch)",
+        "description": "Immediately halt all trading and optionally close all positions",
+        "tags": ["Control"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "close_positions": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If true, close all open positions immediately"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "description": "Reason for emergency stop"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Emergency stop executed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": ["EMERGENCY_STOP"]
+                    },
+                    "positions_closed": {
+                      "type": "integer"
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/config": {
+      "get": {
+        "summary": "Get current configuration",
+        "description": "Returns current system configuration (sensitive values masked)",
+        "tags": ["Config"],
+        "responses": {
+          "200": {
+            "description": "Configuration retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Config"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metrics": {
+      "get": {
+        "summary": "Get Prometheus metrics",
+        "description": "Returns metrics in Prometheus text format",
+        "tags": ["Metrics"],
+        "responses": {
+          "200": {
+            "description": "Metrics retrieved",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "API key passed as Bearer token. Set via ATS_API_KEY env var."
+      }
+    },
+    "schemas": {
+      "SystemStatus": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["STOPPED", "STARTING", "RUNNING", "STOPPING", "ERROR"]
+          },
+          "mode": {
+            "type": "string",
+            "enum": ["paper", "demo", "live"]
+          },
+          "uptime_seconds": {
+            "type": "integer"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "components": {
+            "type": "object",
+            "properties": {
+              "data_feed": {
+                "type": "string",
+                "enum": ["healthy", "degraded", "down"]
+              },
+              "strategies": {
+                "type": "string",
+                "enum": ["healthy", "degraded", "down"]
+              },
+              "execution": {
+                "type": "string",
+                "enum": ["healthy", "degraded", "down"]
+              },
+              "database": {
+                "type": "string",
+                "enum": ["healthy", "degraded", "down"]
+              }
+            }
+          },
+          "metrics": {
+            "type": "object",
+            "properties": {
+              "open_positions": {
+                "type": "integer"
+              },
+              "total_trades": {
+                "type": "integer"
+              },
+              "win_rate": {
+                "type": "number",
+                "format": "float"
+              },
+              "profit_factor": {
+                "type": "number",
+                "format": "float"
+              },
+              "current_drawdown": {
+                "type": "number",
+                "format": "float"
+              }
+            }
+          }
+        }
+      },
+      "Portfolio": {
+        "type": "object",
+        "properties": {
+          "account_id": {
+            "type": "string"
+          },
+          "balance": {
+            "type": "number",
+            "format": "float"
+          },
+          "equity": {
+            "type": "number",
+            "format": "float"
+          },
+          "margin": {
+            "type": "number",
+            "format": "float"
+          },
+          "free_margin": {
+            "type": "number",
+            "format": "float"
+          },
+          "margin_level": {
+            "type": "number",
+            "format": "float"
+          },
+          "open_positions": {
+            "type": "integer"
+          },
+          "total_risk_percent": {
+            "type": "number",
+            "format": "float"
+          },
+          "max_drawdown": {
+            "type": "number",
+            "format": "float"
+          },
+          "peak_equity": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "Position": {
+        "type": "object",
+        "properties": {
+          "trade_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string",
+            "enum": ["LONG", "SHORT"]
+          },
+          "quantity": {
+            "type": "number",
+            "format": "float"
+          },
+          "entry_price": {
+            "type": "number",
+            "format": "float"
+          },
+          "current_price": {
+            "type": "number",
+            "format": "float"
+          },
+          "unrealized_pnl": {
+            "type": "number",
+            "format": "float"
+          },
+          "unrealized_pnl_percent": {
+            "type": "number",
+            "format": "float"
+          },
+          "stop_loss": {
+            "type": "number",
+            "format": "float"
+          },
+          "take_profit": {
+            "type": "number",
+            "format": "float"
+          },
+          "entry_time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "duration_seconds": {
+            "type": "integer"
+          }
+        }
+      },
+      "Trade": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "signal_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string",
+            "enum": ["LONG", "SHORT"]
+          },
+          "entry_price": {
+            "type": "number",
+            "format": "float"
+          },
+          "quantity": {
+            "type": "number",
+            "format": "float"
+          },
+          "stop_loss": {
+            "type": "number",
+            "format": "float"
+          },
+          "take_profit": {
+            "type": "number",
+            "format": "float"
+          },
+          "risk_amount": {
+            "type": "number",
+            "format": "float"
+          },
+          "risk_percent": {
+            "type": "number",
+            "format": "float"
+          },
+          "filled_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "exit_price": {
+            "type": "number",
+            "format": "float"
+          },
+          "exited_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["PENDING", "OPEN", "CLOSED", "CANCELLED"]
+          },
+          "pnl": {
+            "type": "number",
+            "format": "float"
+          },
+          "pnl_percent": {
+            "type": "number",
+            "format": "float"
+          },
+          "exit_reason": {
+            "type": "string",
+            "enum": ["SL", "TP", "MANUAL", "SIGNAL", "EXPIRY"]
+          }
+        }
+      },
+      "Signal": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "strategy_name": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string",
+            "enum": ["LONG", "SHORT"]
+          },
+          "entry_price": {
+            "type": "number",
+            "format": "float"
+          },
+          "stop_loss": {
+            "type": "number",
+            "format": "float"
+          },
+          "take_profit": {
+            "type": "number",
+            "format": "float"
+          },
+          "confidence": {
+            "type": "number",
+            "format": "float",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["PENDING", "VALIDATED", "REJECTED", "EXPIRED", "FILLED"]
+          },
+          "confluence_score": {
+            "type": "number",
+            "format": "float",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Weighted linear confluence score (10 factors)"
+          },
+          "confluence_factors": {
+            "type": "object",
+            "description": "Factor breakdown: {factor_name: {signal, weight, contribution}}",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "signal": { "type": "number" },
+                "weight": { "type": "number" },
+                "contribution": { "type": "number" }
+              }
+            }
+          },
+          "gates_passed": {
+            "type": "boolean",
+            "description": "Whether hard gates (news_clear, spread_normal) passed"
+          },
+          "position_size_multiplier": {
+            "type": "number",
+            "format": "float",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Position sizing from confluence: 0=no trade, 0.25-1.0=scaled"
+          },
+          "contributing_strategies": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Strategies that agreed on this signal direction"
+          },
+          "intensity_mode": {
+            "type": "string",
+            "enum": ["bullet", "blitz", "rapid"],
+            "nullable": true,
+            "description": "Trading intensity mode (null if non-mode-specific strategy)"
+          }
+        }
+      },
+      "IntensityModeStatus": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": ["bullet", "blitz", "rapid"]
+          },
+          "enabled": { "type": "boolean" },
+          "analysis_tf": { "type": "string" },
+          "entry_tf": { "type": "string" },
+          "max_hold_seconds": { "type": "integer" },
+          "tp_min": { "type": "number" },
+          "tp_max": { "type": "number" },
+          "sl_pips": { "type": "number" },
+          "max_concurrent": { "type": "integer" },
+          "max_spread_ratio": { "type": "number" },
+          "cooldown_seconds": { "type": "integer" },
+          "allowed_sessions": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "active_positions": { "type": "integer" },
+          "spread_paused": { "type": "boolean" }
+        }
+      },
+      "StrategyInfo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "signals_generated_today": {
+            "type": "integer"
+          },
+          "signals_filled_today": {
+            "type": "integer"
+          },
+          "win_rate": {
+            "type": "number",
+            "format": "float"
+          },
+          "last_signal_time": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Config": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": ["paper", "demo", "live"]
+          },
+          "symbols": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "risk": {
+            "type": "object",
+            "properties": {
+              "max_risk_per_trade": {
+                "type": "number",
+                "format": "float"
+              },
+              "max_total_risk": {
+                "type": "number",
+                "format": "float"
+              },
+              "max_positions_per_symbol": {
+                "type": "integer"
+              },
+              "max_drawdown_percent": {
+                "type": "number",
+                "format": "float"
+              }
+            }
+          },
+          "strategies": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "enabled": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "trading_hours": {
+            "type": "object",
+            "properties": {
+              "unrestricted": {
+                "type": "boolean",
+                "default": true,
+                "description": "If true, trade 24/7 (demo mode default). Overrides start/end/days."
+              },
+              "timezone": {
+                "type": "string"
+              },
+              "start_time": {
+                "type": "string"
+              },
+              "end_time": {
+                "type": "string"
+              },
+              "trading_days": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Status",
+      "description": "System status and health endpoints"
+    },
+    {
+      "name": "Portfolio",
+      "description": "Portfolio and position management"
+    },
+    {
+      "name": "Trading",
+      "description": "Trade management and history"
+    },
+    {
+      "name": "Signals",
+      "description": "Trading signals"
+    },
+    {
+      "name": "IntensityModes",
+      "description": "Trading intensity mode configuration and status (Bullet/Blitz/Rapid)"
+    },
+    {
+      "name": "Strategies",
+      "description": "Strategy management"
+    },
+    {
+      "name": "Control",
+      "description": "System control (start/stop/emergency)"
+    },
+    {
+      "name": "Config",
+      "description": "Configuration management"
+    },
+    {
+      "name": "Metrics",
+      "description": "Prometheus metrics"
+    }
+  ]
+}

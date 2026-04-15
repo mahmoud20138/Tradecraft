@@ -6,16 +6,25 @@ labels: new-skill
 ---
 
 ## Skill Name
-Name of the new skill.
+
+Short, descriptive, hyphen-separated name:
 
 ## Category
-Target folder (01-07).
 
-## Description
-What does this skill do?
+Proposed path under `classified/`:
 
-## Trigger Keywords
-List the keywords that should activate this skill.
+## Summary
 
-## Skill Content
-Paste or attach the SKILL.md content.
+Brief description of what the skill does:
+
+## Keywords / Triggers
+
+Words that should trigger this skill in an AI assistant:
+
+## Content Preview
+
+Paste or describe the main content of the skill:
+
+## Related Skills
+
+List of existing skills that are related:

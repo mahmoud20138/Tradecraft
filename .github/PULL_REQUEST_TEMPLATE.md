@@ -1,18 +1,24 @@
 ## Description
-Summary of changes.
+
+Brief description of changes:
 
 ## Type of Change
-- [ ] New skill
-- [ ] Skill update/improvement
-- [ ] Bug fix
+
+- [ ] New skill added
+- [ ] Existing skill updated
+- [ ] Category/reorganization change
+- [ ] Index/catalog update
 - [ ] Documentation update
-- [ ] New category
 
-## Category
-Which folder was changed? (01-07)
+## Updated Files
 
-## Checklist
-- [ ] Skill follows existing format
-- [ ] SKILL-INDEX.md updated
-- [ ] README.md updated (if count changed)
-- [ ] Tested with Claude Code
+List the files changed:
+
+## Index Updated?
+
+- [ ] `skills_index.json` updated with new/modified entries
+- [ ] `SKILLS_CATALOG.md` updated
+
+## Testing
+
+How was this tested with an AI assistant?

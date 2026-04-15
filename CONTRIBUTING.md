@@ -1,49 +1,35 @@
-# Contributing to Claude Skills Collection
+# Contributing to Skills Collection
 
-Thank you for considering contributing!
+Thank you for your interest in contributing!
 
-## How to Contribute
+## Adding a New Skill
 
-### Add a New Skill
+1. **Find the right category** — place your `.md` file in the appropriate subdirectory under `classified/`
+2. **Follow the naming convention** — use lowercase, hyphen-separated names (e.g., `my-new-skill.md`)
+3. **Include metadata** — add an entry to `skills_index.json` with name, path, kind, category, status, tags, related_skills, lines, and has_code
+4. **Update the catalog** — add an entry to `SKILLS_CATALOG.md` in the appropriate category section
+5. **Test your skill** — verify it works with your AI assistant before submitting
+
+## Skill File Guidelines
+
+- Start with a clear title and description
+- Include usage instructions and trigger keywords
+- Add executable code blocks where applicable (mark with language identifier)
+- Reference related skills using their exact names
+- Keep skills self-contained and focused
+
+## Pull Request Process
 
 1. Fork the repository
-2. Choose the correct category folder (01-07)
-3. Create a new skill file or folder following the existing structure
-4. Add your skill to `SKILL-INDEX.md`
-5. Update the skills count in `README.md`
-6. Submit a Pull Request
+2. Create a feature branch (`git checkout -b feature/my-new-skill`)
+3. Make your changes
+4. Ensure `skills_index.json` and `SKILLS_CATALOG.md` are updated
+5. Submit a pull request with a clear description
 
-### Skill File Format
+## Reporting Issues
 
-Each skill should include:
-- **Name** - Clear, descriptive name
-- **Description** - What the skill does
-- **Trigger keywords** - Words that activate the skill
-- **Instructions** - Step-by-step workflow
-- **References** (optional) - Links to docs, SDKs, examples
-
-### Categories
-
-| Folder | Category | Topics |
-|--------|----------|--------|
-| `01-Custom-Claude-Skills/` | General | AI agents, UI, architecture, prompts |
-| `02-Azure-Skills/` | Azure Cloud | Deploy, compute, storage, compliance |
-| `03-Claude-Plugin-Skills/` | Plugins | Agents, commands, hooks, MCP |
-| `04-AITK-Prompts/` | Prompts | Browser, fixes, PRs, tools |
-| `05-VSCode-Extension-Skills/` | VSCode | Testing, debugging, environments |
-| `06-OpenCode-Skills/` | OpenCode | SDK, plugins, extensions |
-| `07-Trading-Skills/` | Trading | MQL5, ICT, risk, backtesting |
-
-### Reporting Issues
-
-- Use [GitHub Issues](https://github.com/mahmoud20138/Claude-Skills-Collection/issues)
-- Include the skill name and category
-- Describe the expected vs actual behavior
-
-## Guidelines
-
-- Keep skill descriptions concise
-- Include trigger keywords for auto-loading
-- Follow the existing folder structure
-- Test skills with Claude Code before submitting
-- No external dependencies unless absolutely necessary
+Use GitHub Issues to report:
+- Broken or outdated skills
+- Incorrect categorization
+- Missing related skill references
+- Suggestions for new skills

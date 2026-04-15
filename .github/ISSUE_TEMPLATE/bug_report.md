@@ -1,24 +1,23 @@
 ---
 name: Bug Report
-about: Report a bug in a Claude skill
+about: Report a broken or incorrect skill
 title: "[BUG] "
 labels: bug
 ---
 
 ## Which Skill?
-Skill name and category folder.
 
-## Description
-What went wrong?
+Path to the skill file (e.g., `classified/01-trading/03-strategies/...`):
+
+## What's Wrong?
+
+Describe the issue — outdated info, broken code, incorrect instructions, etc.
 
 ## Expected Behavior
-What should have happened?
 
-## Steps to Reproduce
-1. ...
-2. ...
+What should the skill do instead?
 
 ## Environment
-- OS:
-- Claude Code version:
-- Skill version/date:
+
+- AI assistant used (Claude Code, Cursor, Copilot, etc.):
+- Any other relevant context:

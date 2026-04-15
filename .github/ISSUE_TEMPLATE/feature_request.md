@@ -5,14 +5,19 @@ title: "[FEATURE] "
 labels: enhancement
 ---
 
-## Summary
-Brief description of the suggested feature/skill.
+## Is This a New Skill or Improvement?
 
-## Category
-Which folder should it go in? (01-07)
+- [ ] New skill
+- [ ] Improvement to existing skill
 
-## Use Case
-Why is this useful?
+## Description
 
-## Proposed Implementation
-Any ideas on how it should work?
+What should the skill do? What problem does it solve?
+
+## Suggested Category
+
+Where should it go in the `classified/` directory?
+
+## Related Skills
+
+Any existing skills that should be linked as related?
