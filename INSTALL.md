@@ -24,10 +24,12 @@ You do **not** need a broker account, MT5, Yahoo account, or any API key for the
 Run this inside any Claude Code session:
 
 ```shell
-/plugin marketplace add mahmoud20138/Tradecraft
+/plugin marketplace add https://github.com/mahmoud20138/Tradecraft.git
 ```
 
-(Old URL `mahmoud20138/Claude-Skills-Collection` still works — GitHub auto-redirects from the prior name.)
+> **Why the full HTTPS URL, not `mahmoud20138/Tradecraft`?** The shorthand form sometimes resolves to SSH (`git@github.com:...`), which fails on machines without GitHub's SSH host key in `~/.ssh/known_hosts`. The HTTPS URL avoids the issue entirely — no SSH, no credentials, public repo. If your environment is SSH-ready you can use the shorthand; otherwise stick with HTTPS.
+
+(Old URL `https://github.com/mahmoud20138/Claude-Skills-Collection.git` still works — GitHub auto-redirects from the prior name.)
 
 You should see a confirmation that the `tradecraft` marketplace was added. Verify with:
 
@@ -166,6 +168,7 @@ Or to reload after editing a skill locally (dev loop):
 | Exit code 4 ("no data from any source") | Ticker doesn't exist at either feed | Double-check the symbol; try a broker variant like `XAUUSDm` or the yfinance form like `GC=F` |
 | `/plugin validate .` fails | Local dev edit broke frontmatter | Run `claude plugin validate .` from the repo root; fix the flagged YAML |
 | Old slash prefix `/claude-skills-collection:` no longer works | Plugin was renamed to `tradecraft` | Use `/tradecraft:<skill>` — run `/plugin marketplace update` to pick up the rename |
+| `Failed to clone marketplace repository: SSH host key is not in your known_hosts file` | Claude Code tried SSH (`git@github.com`) but your `~/.ssh/known_hosts` has no GitHub entry | Use the explicit HTTPS URL: `/plugin marketplace add https://github.com/mahmoud20138/Tradecraft.git`. Or, to keep using the shorthand, run `ssh-keyscan -t rsa,ecdsa,ed25519 github.com >> ~/.ssh/known_hosts` once. |
 
 For bugs and feature requests: <https://github.com/mahmoud20138/Tradecraft/issues>
 

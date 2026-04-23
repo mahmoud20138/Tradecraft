@@ -16,9 +16,11 @@
 Inside Claude Code:
 
 ```shell
-/plugin marketplace add mahmoud20138/Tradecraft
+/plugin marketplace add https://github.com/mahmoud20138/Tradecraft.git
 /plugin install tradecraft@tradecraft
 ```
+
+> The full HTTPS URL is recommended because the `owner/repo` shorthand can resolve to SSH on some machines and fail if GitHub isn't in `~/.ssh/known_hosts`. See [INSTALL.md](INSTALL.md) for the full setup.
 
 For live market data on the `fetch-quotes` / `analyze-*` combination skills (free path, no account, no API key):
 
