@@ -1,0 +1,21 @@
+{
+  "name": "claude-skills-collection",
+  "description": "161 curated AI skills across trading, AI development, software engineering, Claude Code platform, data acquisition, and domain knowledge. Each skill becomes a slash command like /claude-skills-collection:<skill>.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Mahmoud Ali",
+    "email": "mahmoud.abdou2002@gmail.com"
+  },
+  "homepage": "https://github.com/mahmoud20138/Claude-Skills-Collection",
+  "repository": "https://github.com/mahmoud20138/Claude-Skills-Collection",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "trading",
+    "ai-agents",
+    "nlp",
+    "claude-code",
+    "plugin",
+    "knowledge-base"
+  ]
+}
