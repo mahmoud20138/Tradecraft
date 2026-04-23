@@ -16,7 +16,7 @@
 Inside Claude Code:
 
 ```shell
-/plugin marketplace add mahmoud20138/Claude-Skills-Collection
+/plugin marketplace add mahmoud20138/Tradecraft
 /plugin install tradecraft@tradecraft
 ```
 

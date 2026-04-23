@@ -24,10 +24,10 @@ You do **not** need a broker account, MT5, Yahoo account, or any API key for the
 Run this inside any Claude Code session:
 
 ```shell
-/plugin marketplace add mahmoud20138/Claude-Skills-Collection
+/plugin marketplace add mahmoud20138/Tradecraft
 ```
 
-(If the repo is later renamed on GitHub, the new name `mahmoud20138/tradecraft` will also work — GitHub auto-redirects.)
+(Old URL `mahmoud20138/Claude-Skills-Collection` still works — GitHub auto-redirects from the prior name.)
 
 You should see a confirmation that the `tradecraft` marketplace was added. Verify with:
 
@@ -167,7 +167,7 @@ Or to reload after editing a skill locally (dev loop):
 | `/plugin validate .` fails | Local dev edit broke frontmatter | Run `claude plugin validate .` from the repo root; fix the flagged YAML |
 | Old slash prefix `/claude-skills-collection:` no longer works | Plugin was renamed to `tradecraft` | Use `/tradecraft:<skill>` — run `/plugin marketplace update` to pick up the rename |
 
-For bugs and feature requests: <https://github.com/mahmoud20138/Claude-Skills-Collection/issues>
+For bugs and feature requests: <https://github.com/mahmoud20138/Tradecraft/issues>
 
 ---
 
