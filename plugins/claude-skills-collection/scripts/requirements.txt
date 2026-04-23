@@ -1,0 +1,13 @@
+# Runtime deps for scripts/fetch_quotes.py
+# Install with:  pip install -r plugins/claude-skills-collection/scripts/requirements.txt
+
+# Free-path data source (no account, no API key)
+yfinance>=0.2.40
+pandas>=2.0
+
+# Optional: render PNG charts with --chart <path>
+matplotlib>=3.7
+
+# Optional, Windows-only: broker-exact pricing via a running MT5 terminal.
+# Install manually only if you want the MT5 path:  pip install MetaTrader5
+# Not pinned here to keep the default `pip install -r ...` cross-platform.

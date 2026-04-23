@@ -7,6 +7,7 @@ category: trading/orchestration
 status: active
 tags: [trading, orchestration, combination, workflow, multi-skill]
 related_skills:
+  - fetch-quotes
   - master-trading-workflow
   - xtrading-analyze
   - market-regime-classifier
@@ -47,6 +48,7 @@ Arguments are exposed to the skill via `$ARGUMENTS`.
 
 | # | Step | Skill invoked | Output expected |
 |---|---|---|---|
+| 0 | Data feed | `fetch-quotes` | OHLCV bars + latest quote (yfinance free by default, MT5 if available) |
 | 1 | Regime classification | `market-regime-classifier` | Trend/range/volatility label; session state |
 | 2 | Fundamentals filter | `risk-calendar-trade-filter` + `trading-fundamentals` | High-impact news gate; macro context |
 | 3 | Structure | `ict-smart-money` | BOS/CHoCH, order blocks, fair value gaps |
