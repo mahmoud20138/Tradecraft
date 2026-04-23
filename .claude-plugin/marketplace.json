@@ -5,14 +5,14 @@
     "email": "mahmoud.abdou2002@gmail.com"
   },
   "metadata": {
-    "description": "165 curated AI skills across trading, AI development, software engineering, Claude Code platform, data acquisition, and domain knowledge.",
+    "description": "169 curated AI skills across trading, AI development, software engineering, Claude Code platform, data acquisition, and domain knowledge.",
     "version": "1.0.0"
   },
   "plugins": [
     {
       "name": "tradecraft",
       "source": "./plugins/tradecraft",
-      "description": "165 curated AI skills. Each skill becomes a slash command like /tradecraft:<skill> and is also model-invocable.",
+      "description": "169 curated AI skills. Each skill becomes a slash command like /tradecraft:<skill> and is also model-invocable.",
       "version": "1.0.0",
       "author": {
         "name": "Mahmoud Ali"

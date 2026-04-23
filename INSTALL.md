@@ -1,6 +1,6 @@
 # Tradecraft — Install Manual
 
-Step-by-step install for the Tradecraft Claude Code plugin (165 AI skills for trading, AI development, software engineering, and more).
+Step-by-step install for the Tradecraft Claude Code plugin (169 AI skills for trading, AI development, software engineering, and more).
 
 ---
 
@@ -9,7 +9,7 @@ Step-by-step install for the Tradecraft Claude Code plugin (165 AI skills for tr
 | Component | Windows | macOS | Linux |
 |---|---|---|---|
 | The plugin itself (marketplace add + install) | ✅ | ✅ | ✅ |
-| The 161 pure-markdown knowledge skills | ✅ | ✅ | ✅ |
+| The 165 pure-markdown knowledge skills | ✅ | ✅ | ✅ |
 | `/tradecraft:fetch-quotes` — free path (yfinance) | ✅ | ✅ | ✅ |
 | `/tradecraft:fetch-quotes` — MT5 path | ✅ | ❌ (`MetaTrader5` PyPI package publishes Windows wheels only) | ❌ |
 | `/tradecraft:pair-analyze`, `analyze-gold`, `analyze-us30` | ✅ | ✅ | ✅ (use free source by default) |
@@ -19,7 +19,7 @@ Step-by-step install for the Tradecraft Claude Code plugin (165 AI skills for tr
 
 The default install works out of the box on all three operating systems. Only the MT5 upgrade path and a handful of skills that assume specific local tools require extra setup.
 
-> **Skill-count math.** Total = **165**. Of those, **161** are pure-markdown knowledge skills (row 2). The remaining **4** are script-backed commands with arguments: `fetch-quotes`, `pair-analyze`, `analyze-gold`, `analyze-us30`.
+> **Skill-count math.** Total = **169**. Of those, **165** are pure-markdown knowledge/entry skills (row 2). The remaining **4** are script-backed commands with arguments: `fetch-quotes`, `pair-analyze`, `analyze-gold`, `analyze-us30`.
 
 ---
 
@@ -75,7 +75,7 @@ Verify with:
 /help
 ```
 
-`/help` should now show entries under `tradecraft:` — 165 of them.
+`/help` should now show entries under `tradecraft:` — 169 of them.
 
 ---
 
@@ -154,7 +154,7 @@ Then try a combination command:
 
 Each runs the full pipeline: data fetch → regime → fundamentals gate → ICT/SMC structure → liquidity → entry refinement → risk sizing → JSON trade plan.
 
-For the 161 knowledge skills (no shell commands, just instructions for Claude):
+For the 165 knowledge skills (no shell commands, just instructions for Claude):
 
 ```shell
 /tradecraft:trading-fundamentals
@@ -216,6 +216,6 @@ For bugs and feature requests: <https://github.com/mahmoud20138/Tradecraft/issue
 
 ## What's next
 
-- **[COMMANDS.md](COMMANDS.md)** — full reference of all 165 skills, grouped by domain
+- **[COMMANDS.md](COMMANDS.md)** — full reference of all 169 skills, grouped by domain
 - **[README.md](README.md)** — high-level overview and quick install
 - **[CONTRIBUTING.md](CONTRIBUTING.md)** — how to add or edit skills

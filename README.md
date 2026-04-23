@@ -1,8 +1,8 @@
 # Tradecraft
 
-> **165 curated AI skills** as a Claude Code plugin — trading, AI development, software engineering, Claude Code platform, data acquisition, and more. Every skill runs as a slash command: `/tradecraft:<skill>`.
+> **5 entry-point commands** on top of **169 curated AI skills** — trading, AI development, software engineering, Claude Code platform, data acquisition, and more. You don't need to remember 169 names: start with one of the 5, let it route you in.
 
-[![Skills](https://img.shields.io/badge/skills-165-blue?style=for-the-badge)](COMMANDS.md)
+[![Skills](https://img.shields.io/badge/skills-169-blue?style=for-the-badge)](COMMANDS.md)
 [![Domains](https://img.shields.io/badge/domains-6-green?style=for-the-badge)](COMMANDS.md)
 [![Plugin](https://img.shields.io/badge/claude_code-plugin-2dd4bf?style=for-the-badge)](https://code.claude.com/docs/en/plugins)
 [![License](https://img.shields.io/badge/license-MIT-informational?style=for-the-badge)](LICENSE)
@@ -30,18 +30,33 @@ For live market data on the `fetch-quotes` / `analyze-*` combination skills (fre
 pip install -r "${CLAUDE_PLUGIN_ROOT}/scripts/requirements.txt"
 ```
 
-Then invoke any skill by name:
+## The 5 entry points
+
+Start here. These five commands cover the full collection:
+
+| Command | What it does |
+|---|---|
+| `/tradecraft:analyze <SYMBOL>` | One-shot deep analysis for any ticker — regime, structure, entry, SL/TP, JSON plan |
+| `/tradecraft:search [keyword]` | Find the right specialist skill by keyword; no arg shows the 5-entry-point menu |
+| `/tradecraft:markets [watchlist]` | Live watchlist snapshot (last, H4 bias, ATR, session) via free yfinance path |
+| `/tradecraft:recommendations [watchlist] [N]` | Top N ranked trade setups across the watchlist right now |
+| `/tradecraft:strategies [name] [symbol]` | Strategy selector and deep-dive (ICT, SMC, breakout, scalp, swing, trend) |
+
+### Examples
 
 ```shell
-/tradecraft:analyze-gold                   # XAUUSD combination (fetch -> regime -> ICT -> risk -> plan)
-/tradecraft:analyze-us30 H4 conservative   # Dow combination, H4 conservative mode
-/tradecraft:pair-analyze EURUSD M15 scalp  # parametric combination for any pair
-/tradecraft:fetch-quotes BTCUSD D1 300     # free market data (yfinance) + MT5 if installed
-/tradecraft:trading-fundamentals           # any of the 161 knowledge skills
-# full list: see COMMANDS.md
+/tradecraft:analyze XAUUSD                             # one-shot gold analysis
+/tradecraft:search risk sizing                         # find skills matching "risk sizing"
+/tradecraft:markets                                    # scan default watchlist
+/tradecraft:recommendations XAUUSD,US30,EURUSD 3       # top 3 setups from those 3 symbols
+/tradecraft:strategies ict XAUUSD                      # ICT deep-dive tuned for gold
 ```
 
-Each skill is also model-invocable — Claude will auto-select the right skill based on your task context. Run `/help` to browse all skills under the `tradecraft:` namespace. Full step-by-step setup (including optional MT5 for broker-exact prices) is in **[INSTALL.md](INSTALL.md)**.
+### Power users: direct skill invocation
+
+All **169 skills** are still directly invokable as `/tradecraft:<skill-name>` — the 5 entry points are an ergonomic layer, nothing is hidden. See the full list in [COMMANDS.md](COMMANDS.md), grouped by domain with per-skill descriptions.
+
+Each skill is also model-invocable — Claude will auto-select the right one based on your task context. Run `/help` to browse under the `tradecraft:` namespace. Full step-by-step setup (including optional MT5 for broker-exact prices) is in **[INSTALL.md](INSTALL.md)**.
 
 ---
 
@@ -49,10 +64,10 @@ Each skill is also model-invocable — Claude will auto-select the right skill b
 
 | Domain | Skills | Examples |
 |---|---:|---|
-| **Trading** | 101 | `trading-fundamentals`, `ict-smart-money`, `smc-beginner-pro-guide`, `risk-and-portfolio`, `analyze-gold`, `analyze-us30`, `pair-analyze` |
+| **Trading** | 104 | `trading-fundamentals`, `ict-smart-money`, `analyze`, `markets`, `recommendations`, `strategies`, `pair-analyze`, `analyze-gold`, `analyze-us30` |
 | **AI Development** | 7 | `agent-development`, `mcp-integration`, `ai-agent-builder`, `few-shot-quality-prompting` |
 | **Software Engineering** | 20 | `pro-code-architecture`, `elite-ui-design`, `system-design-academy`, `debug-failing-test` |
-| **Claude Code Platform** | 19 | `plugin-structure`, `hook-development`, `skill-development`, `command-development` |
+| **Claude Code Platform** | 20 | `search`, `plugin-structure`, `hook-development`, `skill-development`, `command-development` |
 | **Data Acquisition** | 4 | `firecrawl`, `video-gen`, `video-knowledge-extractor`, `youtube-video-to-knowledge` |
 | **Domain Specific** | 2 | Specialized vertical knowledge |
 
@@ -81,7 +96,7 @@ Claude-Skills-Collection/
             │   └── SKILL.md
             ├── ict-smart-money/
             │   └── SKILL.md
-            └── ... (165 total)
+            └── ... (169 total)
 ```
 
 Layout follows the [Claude Code plugin marketplace spec](https://code.claude.com/docs/en/plugin-marketplaces).

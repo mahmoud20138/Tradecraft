@@ -1,6 +1,6 @@
 # Tradecraft — Commands Reference
 
-Every skill in Tradecraft is invoked as `/tradecraft:<skill-name>`. Total: **165** skills across **6** domains (plus 12 currently uncategorized).
+Every skill in Tradecraft is invoked as `/tradecraft:<skill-name>`. Total: **169** skills across **6** domains (plus 12 currently uncategorized).
 
 To install, see **[INSTALL.md](INSTALL.md)**.
 
@@ -15,10 +15,10 @@ To install, see **[INSTALL.md](INSTALL.md)**.
   - [`/tradecraft:xtrading-analyze`](#tradecraftxtrading-analyze)
   - [`/tradecraft:analyze`](#tradecraftanalyze)
 - [All skills by domain](#all-skills-by-domain)
-  - [Trading](#trading) (101)
+  - [Trading](#trading) (104)
   - [AI Development](#ai-development) (7)
   - [Software Engineering](#software-engineering) (20)
-  - [Claude Code Platform](#claude-code-platform) (19)
+  - [Claude Code Platform](#claude-code-platform) (20)
   - [Data Acquisition](#data-acquisition) (4)
   - [Domain Specific](#domain-specific) (2)
   - [Uncategorized](#uncategorized) (12)
@@ -219,7 +219,7 @@ The knowledge skills below take no arguments — invoke by name and they load as
 
 ### Trading
 
-101 skill(s)
+104 skill(s)
 
 | Command | Description |
 |---|---|
@@ -272,6 +272,7 @@ The knowledge skills below take no arguments — invoke by name and they load as
 | `/tradecraft:market-making-hft` | Market making and high-frequency trading: quote generation, inventory management, order book analysis, latency tracking, microstructure signals, spoofing detection, optimal execution (TWAP/VWAP), Avellaneda-Stoikov model, order flow toxicity, market impact estimation. USE FOR: market making, market maker, HFT, high frequency, order book, bid ask, spread, inventory, spoofing, microstructure, latency, TWAP, VWAP, order flow, toxicity, tick data, limit order. |
 | `/tradecraft:market-regime-classifier` | ML-powered market regime classification — trending, ranging, volatile, quiet. Automatically adapts strategy selection based on detected regime. Use this skill whenever the user asks "is the market trending", "what regime are we in", "ranging or trending", "market conditions", "volatility regime", "classify market state", "adapt strategy", "regime change", "market phase", "consolidation or breakout", "trending market detection", or any question about current market conditions and which strateg... |
 | `/tradecraft:market-structure-bos-choch` | Market structure analysis — Break of Structure (BOS), Change of Character (CHoCH), premium/ discount, market structure shifts, and candle-close swing validation (Jonathan Jarvis method). Use for "BOS", "break of structure", "CHoCH", "change of character", "market structure shift", "MSS", "structure break", "higher high higher low", "lower high lower low", "internal structure", "swing structure", "valid high", "valid low", "candle close validation", "mechanical structure", "Norfolk FX", or any... |
+| `/tradecraft:markets` | Entry-point live-market scan. Returns current quote, H1/H4 regime, session state, and watch levels for a default watchlist (gold, US30, US500, US100, EURUSD, GBPUSD, BTCUSD, ETHUSD) — or any custom list. Uses the free yfinance path by default, MT5 if available. USE FOR - scan markets, what's moving, market overview, current prices, what's on the watchlist, show me the markets. |
 | `/tradecraft:master-trading-workflow` | Master 18-phase trading workflow — the definitive skill sequence for any trade. Covers infrastructure through automation. Use for "trading workflow", "full process", "trade checklist", "how to trade", "complete trading plan", "master plan", "what skills to run", "trade from scratch". |
 | `/tradecraft:mean-reversion-engine` | Mean reversion strategy templates — Bollinger bounce, RSI extreme fade, Z-score reversion with regime guard. Use this skill for "mean reversion", "fade the move", "RSI overbought oversold", "Bollinger bounce", "reversion to mean", "Z-score trade", "oversold bounce", "overbought fade", "rubber band strategy", "range trading strategy", or any reversion setup. Works with market-regime-classifier (ONLY use in ranging regimes) and risk-and-portfolio. |
 | `/tradecraft:ml-trading` | Machine learning for trading — supervised classification/regression (XGBoost, LSTM), feature engineering, unsupervised regime detection (K-Means, HMM), reinforcement learning (PPO), NLP sentiment, and time-series cross-validation. Use for ML trading, machine learning, feature engineering, XGBoost, LSTM, or any ML-based trading model development. |
@@ -294,6 +295,7 @@ The knowledge skills below take no arguments — invoke by name and they load as
 | `/tradecraft:quant-ml-trading` | Complete quantitative and ML-powered trading toolkit — strategy validation, genetic optimization, decay monitoring, reinforcement learning, signal aggregation, data science pipelines, and statistical/quant foundations. Use this skill for: "generate a backtest report", "create tearsheet", "equity curve", "Monte Carlo simulation", "strategy report", "performance tearsheet", "backtest results", "drawdown analysis", "strategy statistics", "risk report", "publish backtest", "PDF report", "HTML rep... |
 | `/tradecraft:real-time-risk-monitor` | Real-time portfolio risk monitoring with live metrics (drawdown, exposure, correlation, VaR), configurable alert thresholds, kill switches for emergency stops, and ASCII dashboard display. Use for risk monitor, live risk, kill switch, exposure alert, real-time drawdown, or any live risk monitoring. |
 | `/tradecraft:realtime-alert-pipeline` | Condition monitoring, multi-trigger alerts, and notification pipeline for trading signals. Use this skill whenever the user asks about "set an alert", "price alert", "notify me when", "trigger alert", "condition monitoring", "signal pipeline", "push notification trading", "alert system", "watchlist alerts", "multi-condition trigger", "composite alert", or any request to set up automated monitoring and alerting. Works with mt5-chart-browser for data and all analysis skills for condition genera... |
+| `/tradecraft:recommendations` | Entry-point ranked-setup feed. Runs the full pair-analyze pipeline against a watchlist and returns the top N highest-grade trade setups right now, sorted by confidence × R:R, with one-line rationale and a copy-pasteable trade plan. USE FOR - what should I trade, recommend trades, best setups, top picks, ranked opportunities, where's the edge. |
 | `/tradecraft:risk-and-portfolio` | Complete trading risk management, portfolio construction, performance tracking, and quantitative stress testing — all in one skill. The safety layer for all trading decisions. RISK MANAGEMENT: "risk management", "position sizing", "lot size calculation", "stop loss placement", "drawdown management", "Kelly criterion", "ATR-based sizing", "fixed percentage risk model", "risk-reward analysis", "profit factor", "expectancy", "trading psychology", "trade-psychology-coach biases", "loss aversion",... |
 | `/tradecraft:risk-calendar-trade-filter` | Determines when NOT to trade by mapping event blackout zones, session quality windows, and risk filters. Use this skill whenever the user asks "should I trade today", "is it safe to trade", "any events to avoid", "blackout zones", "when not to trade", "trade filter", "event risk", "news blackout", "rollover time", "low liquidity", "end of month", "NFP week", "FOMC week", or any question about trading timing safety. This is a pre-trade safety gate that should be checked before any entry. Works... |
 | `/tradecraft:risk-of-ruin` | Risk of Ruin formula, Kelly Criterion (full and fractional), Monte Carlo survival simulation, and position sizing models (fixed fractional, volatility-adjusted, fixed ratio). Use for risk of ruin, Kelly criterion, Monte Carlo, position sizing, bankroll management, or any ruin/sizing calculation. |
@@ -304,6 +306,7 @@ The knowledge skills below take no arguments — invoke by name and they load as
 | `/tradecraft:social-sentiment-scraper` | Scrapes and analyzes social media sentiment from Twitter/X, Reddit, TradingView, and market sentiment indicators like Fear & Greed Index and retail positioning. Use this skill whenever the user asks about "market sentiment", "what are traders saying", "Twitter sentiment", "Reddit WallStreetBets", "retail positioning", "Fear and Greed Index", "crowd sentiment", "contrarian signal", "social media trading", "TradingView ideas", "bullish or bearish crowd", "retail long/short ratio", "IG client se... |
 | `/tradecraft:spread-slippage-cost-analyzer` | Measure real execution costs, compare brokers, detect hidden fees and spread widening. Use this skill for "spread analysis", "slippage", "execution cost", "broker comparison", "hidden fees", "spread widening", "cost of trading", "true spread", "execution quality", "tick cost analysis", "best broker", or any question about trading costs. Works with mt5-chart-browser for tick data and trade-journal-performance for actual execution data. |
 | `/tradecraft:statistics-timeseries` | Statistical analysis and time series modeling for trading: regime detection, probability modeling, edge validation, correlation modeling, distribution analysis, hypothesis testing, ARIMA models, stationarity testing, autocorrelation analysis. USE FOR: regime detection, edge validation, win rate analysis, expectancy, probability of profit, distribution analysis, normal distribution, fat tails, Sharpe ratio calculation, statistical significance, hypothesis testing, Monte Carlo simulation, corre... |
+| `/tradecraft:strategies` | Entry-point strategy selector. Lists the available trading strategies with a one-line when-to-use for each, plus a deep-dive drill-down by name. Routes to the right specialist skill (ICT/SMC, breakout, scalping, swing, trend-following, mean-reversion). USE FOR - which strategy, what strategies, strategy selector, strategy list, how should I trade, pick a strategy, ICT or SMC, breakout or trend. |
 | `/tradecraft:strategy-genetic-optimizer` | Evolutionary algorithm engine that breeds, mutates, and evolves trading strategies automatically. Use this skill whenever the user asks to "optimize strategy", "evolve parameters", "genetic algorithm", "breed strategies", "parameter optimization", "auto-optimize", "find best parameters", "evolutionary search", "mutation", "crossover", "fitness function", "population-based optimization", or any request to automatically discover optimal strategy configurations. Works with quant-trading-pipeline... |
 | `/tradecraft:strategy-selection` | Meta-skill for selecting the optimal trading strategy based on current market conditions, session timing, volatility regime, and asset class. Routes to the correct strategy skill. USE FOR: which strategy to use, what setup for this market, strategy for current conditions, best approach right now, market regime detection, should I scalp or swing, trending or ranging. |
 | `/tradecraft:strategy-validation` | End-to-end strategy validation — backtest tearsheet (Sharpe, Sortino, Calmar, VaR), walk-forward optimization, Monte Carlo stress testing, parameter sensitivity heatmaps, and strategy A/B testing. Use for validate strategy, backtest report, walk-forward, Monte Carlo test, parameter sensitivity, or any strategy validation. |
@@ -368,7 +371,7 @@ The knowledge skills below take no arguments — invoke by name and they load as
 
 ### Claude Code Platform
 
-19 skill(s)
+20 skill(s)
 
 | Command | Description |
 |---|---|
@@ -380,6 +383,7 @@ The knowledge skills below take no arguments — invoke by name and they load as
 | `/tradecraft:hook-development` | This skill should be used when the user asks to "create a hook", "add a PreToolUse/PostToolUse/Stop hook", "validate tool use", "implement prompt-based hooks", "use ${CLAUDE_PLUGIN_ROOT}", "set up event-driven automation", "block dangerous commands", or mentions hook events (PreToolUse, PostToolUse, Stop, SubagentStop, SessionStart, SessionEnd, UserPromptSubmit, PreCompact, Notification). Provides comprehensive guidance for creating and implementing Claude Code plugin hooks with focus on adva... |
 | `/tradecraft:plugin-settings` | This skill should be used when the user asks about "plugin settings", "store plugin configuration", "user-configurable plugin", ".local.md files", "plugin state files", "read YAML frontmatter", "per-project plugin settings", or wants to make plugin behavior configurable. Documents the .claude/plugin-name.local.md pattern for storing plugin-specific configuration with YAML frontmatter and markdown content. |
 | `/tradecraft:plugin-structure` | This skill should be used when the user asks to "create a plugin", "scaffold a plugin", "understand plugin structure", "organize plugin components", "set up plugin.json", "use ${CLAUDE_PLUGIN_ROOT}", "add commands/agents/skills/hooks", "configure auto-discovery", or needs guidance on plugin directory layout, manifest configuration, component organization, file naming conventions, or Claude Code plugin architecture best practices. |
+| `/tradecraft:search` | Entry-point skill discovery. Given a keyword or task description, returns the shortest list of Tradecraft skills that match, with direct invocation recipes. No keyword = show the 5 main entry points. USE FOR - find skill, which skill, how do I, search skills, list skills, what can this do, find command. |
 | `/tradecraft:skill-analytics` | Track which skills you use most, success rates, token usage, and generate improvement recommendations. Reads ~/.claude/usage.json. |
 | `/tradecraft:skill-development` | This skill should be used when the user wants to "create a skill", "add a skill to plugin", "write a new skill", "improve skill description", "organize skill content", or needs guidance on skill structure, progressive disclosure, or skill development best practices for Claude Code plugins. |
 | `/tradecraft:skill-docs-generator` | Auto-generate documentation for all 146 skills — interactive HTML navigator, dependency graphs, usage examples, quick-start guides, and skill catalog. |

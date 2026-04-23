@@ -1,6 +1,6 @@
 {
   "name": "tradecraft",
-  "description": "165 curated AI skills across trading, AI development, software engineering, Claude Code platform, data acquisition, and domain knowledge. Each skill becomes a slash command like /tradecraft:<skill>.",
+  "description": "169 curated AI skills across trading, AI development, software engineering, Claude Code platform, data acquisition, and domain knowledge. Each skill becomes a slash command like /tradecraft:<skill>.",
   "version": "1.0.0",
   "author": {
     "name": "Mahmoud Ali",
