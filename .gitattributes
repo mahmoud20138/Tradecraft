@@ -1,0 +1,30 @@
+# Normalize line endings across Windows / macOS / Linux checkouts.
+# Text files store as LF in the repo; Git may present them as CRLF on
+# Windows working copies but restores LF on commit.
+* text=auto eol=lf
+
+# Keep source/script/doc files strictly LF so the Python interpreter and
+# shebang lines work the same on every OS.
+*.py     text eol=lf
+*.sh     text eol=lf
+*.md     text eol=lf
+*.json   text eol=lf
+*.yaml   text eol=lf
+*.yml    text eol=lf
+*.txt    text eol=lf
+
+# Windows-only shell scripts must keep CRLF endings so cmd.exe and
+# PowerShell parse them correctly. The global `eol=lf` above would
+# otherwise silently corrupt them.
+*.bat    text eol=crlf
+*.cmd    text eol=crlf
+*.ps1    text eol=crlf
+
+# Binary assets - never touch encoding.
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.pdf    binary
+*.zip    binary

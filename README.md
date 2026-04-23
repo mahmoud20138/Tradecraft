@@ -22,6 +22,8 @@ Inside Claude Code:
 
 > The full HTTPS URL is recommended because the `owner/repo` shorthand can resolve to SSH on some machines and fail if GitHub isn't in `~/.ssh/known_hosts`. See [INSTALL.md](INSTALL.md) for the full setup.
 
+**Works on Windows, macOS, and Linux.** The default free data path is cross-platform (yfinance, no credentials). The optional MT5 upgrade path is Windows-only (MetaQuotes ships the `MetaTrader5` Python package for Windows only). See the [platform support matrix](INSTALL.md#platform-support) for details.
+
 For live market data on the `fetch-quotes` / `analyze-*` combination skills (free path, no account, no API key):
 
 ```shell
@@ -35,7 +37,7 @@ Then invoke any skill by name:
 /tradecraft:analyze-us30 H4 conservative   # Dow combination, H4 conservative mode
 /tradecraft:pair-analyze EURUSD M15 scalp  # parametric combination for any pair
 /tradecraft:fetch-quotes BTCUSD D1 300     # free market data (yfinance) + MT5 if installed
-/tradecraft:trading-fundamentals           # any of the 164+ knowledge skills
+/tradecraft:trading-fundamentals           # any of the 161 knowledge skills
 # full list: see COMMANDS.md
 ```
 
